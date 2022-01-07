@@ -1,0 +1,2898 @@
+##########################################################################
+#
+#  Copyright (c) 2016, Image Engine Design Inc. All rights reserved.
+#
+#  Redistribution and use in source and binary forms, with or without
+#  modification, are permitted provided that the following conditions are
+#  met:
+#
+#      * Redistributions of source code must retain the above
+#        copyright notice, this list of conditions and the following
+#        disclaimer.
+#
+#      * Redistributions in binary form must reproduce the above
+#        copyright notice, this list of conditions and the following
+#        disclaimer in the documentation and/or other materials provided with
+#        the distribution.
+#
+#      * Neither the name of John Haddon nor the names of
+#        any other contributors to this software may be used to endorse or
+#        promote products derived from this software without specific prior
+#        written permission.
+#
+#  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
+#  IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+#  THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+#  PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR
+#  CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+#  EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+#  PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+#  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+#  LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+#  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+#  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+#
+##########################################################################
+# edited by elrachyd@gmail.com
+# 1/7/2022
+##########################################################################
+
+# Standard Arnold Lights
+##########################################################################
+
+[node point_light]
+
+	gaffer.layout.section.Shape.collapsed BOOL false
+	gaffer.layout.section.Sampling.collapsed BOOL false
+
+	[attr color]
+		gaffer.layout.index INT 0
+	[attr intensity]
+		gaffer.layout.index INT 1
+	[attr exposure]
+		gaffer.layout.index INT 2
+	[attr normalize]
+		gaffer.layout.index INT 3
+	[attr aov]
+		gaffer.layout.index INT 4
+
+	[attr radius]
+		page STRING "Shape"
+		gaffer.layout.index INT 5
+
+	[attr samples]
+		page STRING "Sampling"
+		gaffer.layout.index INT 6
+	[attr volume_samples]
+		page STRING "Sampling"
+		gaffer.layout.index INT 7
+
+	[attr cast_shadows]
+		page STRING "Shadows"
+		gaffer.layout.index INT 8
+	[attr cast_volumetric_shadows]
+		page STRING "Shadows"
+		gaffer.layout.index INT 9
+	[attr shadow_density]
+		page STRING "Shadows"
+		gaffer.layout.index INT 10
+	[attr shadow_color]
+		page STRING "Shadows"
+		gaffer.layout.index INT 11
+
+	[attr camera]
+		page STRING "Contribution"
+		gaffer.layout.index INT 12
+	[attr transmission]
+		page STRING "Contribution"
+		gaffer.layout.index INT 13
+	[attr diffuse]
+		page STRING "Contribution"
+		gaffer.layout.index INT 14
+	[attr specular]
+		page STRING "Contribution"
+		gaffer.layout.index INT 15
+	[attr sss]
+		page STRING "Contribution"
+		gaffer.layout.index INT 16
+	[attr indirect]
+		page STRING "Contribution"
+		gaffer.layout.index INT 19
+	[attr volume]
+		page STRING "Contribution"
+		gaffer.layout.index INT 20
+	[attr max_bounces]
+		page STRING "Contribution"
+		gaffer.layout.index INT 21
+
+	[attr position]
+		gaffer.plugType STRING ""
+	[attr matrix]
+		gaffer.plugType STRING ""
+	[attr filters]
+		gaffer.plugType STRING ""
+	[attr time_samples]
+		gaffer.plugType STRING ""
+	[attr motion_start]
+		gaffer.plugType STRING ""
+	[attr motion_end]
+		gaffer.plugType STRING ""
+
+#-------------------------------------------------------------------
+[node distant_light]
+
+	gaffer.layout.section.Shape.collapsed BOOL false
+	gaffer.layout.section.Sampling.collapsed BOOL false
+
+	[attr color]
+		gaffer.layout.index INT 0
+	[attr intensity]
+		gaffer.layout.index INT 1
+	[attr exposure]
+		gaffer.layout.index INT 2
+	[attr normalize]
+		gaffer.layout.index INT 3
+	[attr aov]
+		gaffer.layout.index INT 4
+
+	[attr angle]
+		page STRING "Shape"
+		gaffer.layout.index INT 5
+
+	[attr samples]
+		page STRING "Sampling"
+		gaffer.layout.index INT 6
+	[attr volume_samples]
+		page STRING "Sampling"
+		gaffer.layout.index INT 7
+
+	[attr cast_shadows]
+		page STRING "Shadows"
+		gaffer.layout.index INT 8
+	[attr cast_volumetric_shadows]
+		page STRING "Shadows"
+		gaffer.layout.index INT 9
+	[attr shadow_density]
+		page STRING "Shadows"
+		gaffer.layout.index INT 10
+	[attr shadow_color]
+		page STRING "Shadows"
+		gaffer.layout.index INT 11
+
+	[attr camera]
+		page STRING "Contribution"
+		gaffer.layout.index INT 12
+	[attr transmission]
+		page STRING "Contribution"
+		gaffer.layout.index INT 13
+	[attr diffuse]
+		page STRING "Contribution"
+		gaffer.layout.index INT 14
+	[attr specular]
+		page STRING "Contribution"
+		gaffer.layout.index INT 15
+	[attr sss]
+		page STRING "Contribution"
+		gaffer.layout.index INT 16
+	[attr indirect]
+		page STRING "Contribution"
+		gaffer.layout.index INT 19
+	[attr volume]
+		page STRING "Contribution"
+		gaffer.layout.index INT 20
+	[attr max_bounces]
+		page STRING "Contribution"
+		gaffer.layout.index INT 21
+
+	[attr matrix]
+		gaffer.plugType STRING ""
+	[attr direction]
+		gaffer.plugType STRING ""
+	[attr filters]
+		gaffer.plugType STRING ""
+	[attr time_samples]
+		gaffer.plugType STRING ""
+	[attr motion_start]
+		gaffer.plugType STRING ""
+	[attr motion_end]
+		gaffer.plugType STRING ""
+
+#-------------------------------------------------------------------
+[node quad_light]
+
+	gaffer.layout.section.Shape.collapsed BOOL false
+	gaffer.layout.section.Sampling.collapsed BOOL false
+
+	[attr portal]
+		options STRING "Light:0|Portal:1"
+		label STRING "Mode"
+		gaffer.layout.index INT 0
+	[attr color]
+		gaffer.layout.index INT 1
+	[attr intensity]
+		gaffer.layout.index INT 2
+	[attr exposure]
+		gaffer.layout.index INT 3
+	[attr normalize]
+		gaffer.layout.index INT 4
+	[attr aov]
+		gaffer.layout.index INT 5
+
+	[attr roundness]
+		page STRING "Shape"
+		gaffer.layout.index INT 6
+	[attr soft_edge]
+		page STRING "Shape"
+		gaffer.layout.index INT 7
+	[attr spread]
+		page STRING "Shape"
+		gaffer.layout.index INT 8
+	[attr resolution]
+		page STRING "Shape"
+		gaffer.layout.index INT 9
+
+	[attr samples]
+		page STRING "Sampling"
+		gaffer.layout.index INT 10
+	[attr volume_samples]
+		page STRING "Sampling"
+		gaffer.layout.index INT 11
+
+	[attr cast_shadows]
+		page STRING "Shadows"
+		gaffer.layout.index INT 12
+	[attr cast_volumetric_shadows]
+		page STRING "Shadows"
+		gaffer.layout.index INT 13
+	[attr shadow_density]
+		page STRING "Shadows"
+		gaffer.layout.index INT 14
+	[attr shadow_color]
+		page STRING "Shadows"
+		gaffer.layout.index INT 15
+
+	[attr camera]
+		page STRING "Contribution"
+		gaffer.layout.index INT 16
+	[attr transmission]
+		page STRING "Contribution"
+		gaffer.layout.index INT 17
+	[attr diffuse]
+		page STRING "Contribution"
+		gaffer.layout.index INT 18
+	[attr specular]
+		page STRING "Contribution"
+		gaffer.layout.index INT 19
+	[attr sss]
+		page STRING "Contribution"
+		gaffer.layout.index INT 20
+	[attr indirect]
+		page STRING "Contribution"
+		gaffer.layout.index INT 21
+	[attr volume]
+		page STRING "Contribution"
+		gaffer.layout.index INT 22
+	[attr max_bounces]
+		page STRING "Contribution"
+		gaffer.layout.index INT 23
+
+	[attr vertices]
+		gaffer.plugType STRING ""
+	[attr matrix]
+		gaffer.plugType STRING ""
+	[attr filters]
+		gaffer.plugType STRING ""
+	[attr time_samples]
+		gaffer.plugType STRING ""
+	[attr motion_start]
+		gaffer.plugType STRING ""
+	[attr motion_end]
+		gaffer.plugType STRING ""
+#-------------------------------------------------------------------
+[node spot_light]
+
+	gaffer.layout.section.Shape.collapsed BOOL false
+	gaffer.layout.section.Sampling.collapsed BOOL false
+
+	[attr color]
+		gaffer.layout.index INT 0
+	[attr intensity]
+		gaffer.layout.index INT 1
+	[attr exposure]
+		gaffer.layout.index INT 2
+	[attr normalize]
+		gaffer.layout.index INT 3
+	[attr aov]
+		gaffer.layout.index INT 4
+
+	[attr roundness]
+		page STRING "Shape"
+		gaffer.layout.index INT 5
+	[attr radius]
+		page STRING "Shape"
+		gaffer.layout.index INT 6
+	[attr lens_radius]
+		page STRING "Shape"
+		gaffer.layout.index INT 7
+	[attr cone_angle]
+		page STRING "Shape"
+		gaffer.layout.index INT 8
+	[attr penumbra_angle]
+		page STRING "Shape"
+		gaffer.layout.index INT 9
+	[attr cosine_power]
+		page STRING "Shape"
+		gaffer.layout.index INT 10
+	[attr aspect_ratio]
+		page STRING "Shape"
+		gaffer.layout.index INT 11
+
+	[attr samples]
+		page STRING "Sampling"
+		gaffer.layout.index INT 12
+	[attr volume_samples]
+		page STRING "Sampling"
+		gaffer.layout.index INT 13
+
+	[attr cast_shadows]
+		page STRING "Shadows"
+		gaffer.layout.index INT 14
+	[attr cast_volumetric_shadows]
+		page STRING "Shadows"
+		gaffer.layout.index INT 15
+	[attr shadow_density]
+		page STRING "Shadows"
+		gaffer.layout.index INT 16
+	[attr shadow_color]
+		page STRING "Shadows"
+		gaffer.layout.index INT 17
+
+	[attr camera]
+		page STRING "Contribution"
+		gaffer.layout.index INT 18
+	[attr transmission]
+		page STRING "Contribution"
+		gaffer.layout.index INT 19
+	[attr diffuse]
+		page STRING "Contribution"
+		gaffer.layout.index INT 20
+	[attr specular]
+		page STRING "Contribution"
+		gaffer.layout.index INT 21
+	[attr sss]
+		page STRING "Contribution"
+		gaffer.layout.index INT 22
+	[attr indirect]
+		page STRING "Contribution"
+		gaffer.layout.index INT 25
+	[attr volume]
+		page STRING "Contribution"
+		gaffer.layout.index INT 26
+	[attr max_bounces]
+		page STRING "Contribution"
+		gaffer.layout.index INT 27
+
+	[attr position]
+		gaffer.plugType STRING ""
+	[attr look_at]
+		gaffer.plugType STRING ""
+	[attr up]
+		gaffer.plugType STRING ""
+	[attr matrix]
+		gaffer.plugType STRING ""
+	[attr filters]
+		gaffer.plugType STRING ""
+	[attr time_samples]
+		gaffer.plugType STRING ""
+	[attr motion_start]
+		gaffer.plugType STRING ""
+	[attr motion_end]
+		gaffer.plugType STRING ""
+
+#-------------------------------------------------------------------
+[node skydome_light]
+
+	gaffer.layout.section.Map.collapsed BOOL false
+	gaffer.layout.section.Sampling.collapsed BOOL false
+
+	[attr color]
+		gaffer.layout.index INT 0
+	[attr intensity]
+		gaffer.layout.index INT 1
+	[attr exposure]
+		gaffer.layout.index INT 2
+	[attr normalize]
+		gaffer.layout.index INT 3
+	[attr portal_mode]
+		gaffer.layout.index INT 4
+	[attr aov]
+		gaffer.layout.index INT 5
+	[attr aov_indirect]
+		gaffer.layout.index INT 6
+
+	[attr shader]
+		page STRING "Map"
+		gaffer.plugType STRING "ClosurePlug"
+		gaffer.layout.index INT 7
+	[attr format]
+		page STRING "Map"
+		gaffer.layout.index INT 8
+	[attr resolution]
+		page STRING "Map"
+		gaffer.layout.index INT 9
+
+	[attr samples]
+		page STRING "Sampling"
+		gaffer.layout.index INT 10
+	[attr volume_samples]
+		page STRING "Sampling"
+		gaffer.layout.index INT 11
+
+	[attr cast_shadows]
+		page STRING "Shadows"
+		gaffer.layout.index INT 12
+	[attr cast_volumetric_shadows]
+		page STRING "Shadows"
+		gaffer.layout.index INT 13
+	[attr shadow_density]
+		page STRING "Shadows"
+		gaffer.layout.index INT 14
+	[attr shadow_color]
+		page STRING "Shadows"
+		gaffer.layout.index INT 15
+
+	[attr camera]
+		page STRING "Contribution"
+		gaffer.layout.index INT 16
+	[attr transmission]
+		page STRING "Contribution"
+		gaffer.layout.index INT 17
+	[attr diffuse]
+		page STRING "Contribution"
+		gaffer.layout.index INT 18
+	[attr specular]
+		page STRING "Contribution"
+		gaffer.layout.index INT 19
+	[attr sss]
+		page STRING "Contribution"
+		gaffer.layout.index INT 20
+	[attr indirect]
+		page STRING "Contribution"
+		gaffer.layout.index INT 21
+	[attr volume]
+		page STRING "Contribution"
+		gaffer.layout.index INT 22
+	[attr max_bounces]
+		page STRING "Contribution"
+		gaffer.layout.index INT 23
+
+	[attr matrix]
+		gaffer.plugType STRING ""
+	[attr filters]
+		gaffer.plugType STRING ""
+	[attr time_samples]
+		gaffer.plugType STRING ""
+	[attr motion_start]
+		gaffer.plugType STRING ""
+	[attr motion_end]
+		gaffer.plugType STRING ""
+
+#-------------------------------------------------------------------
+[node cylinder_light]
+
+	gaffer.layout.section.Shape.collapsed BOOL false
+	gaffer.layout.section.Sampling.collapsed BOOL false
+
+	[attr color]
+		gaffer.layout.index INT 0
+	[attr intensity]
+		gaffer.layout.index INT 1
+	[attr exposure]
+		gaffer.layout.index INT 2
+	[attr normalize]
+		gaffer.layout.index INT 3
+	[attr aov]
+		gaffer.layout.index INT 4
+
+	[attr radius]
+		page STRING "Shape"
+		gaffer.layout.index INT 5
+
+	[attr samples]
+		page STRING "Sampling"
+		gaffer.layout.index INT 6
+	[attr volume_samples]
+		page STRING "Sampling"
+		gaffer.layout.index INT 7
+
+	[attr cast_shadows]
+		page STRING "Shadows"
+		gaffer.layout.index INT 8
+	[attr cast_volumetric_shadows]
+		page STRING "Shadows"
+		gaffer.layout.index INT 9
+	[attr shadow_density]
+		page STRING "Shadows"
+		gaffer.layout.index INT 10
+	[attr shadow_color]
+		page STRING "Shadows"
+		gaffer.layout.index INT 11
+
+	[attr camera]
+		page STRING "Contribution"
+		gaffer.layout.index INT 12
+	[attr transmission]
+		page STRING "Contribution"
+		gaffer.layout.index INT 13
+	[attr diffuse]
+		page STRING "Contribution"
+		gaffer.layout.index INT 14
+	[attr specular]
+		page STRING "Contribution"
+		gaffer.layout.index INT 15
+	[attr sss]
+		page STRING "Contribution"
+		gaffer.layout.index INT 16
+	[attr indirect]
+		page STRING "Contribution"
+		gaffer.layout.index INT 17
+	[attr volume]
+		page STRING "Contribution"
+		gaffer.layout.index INT 18
+	[attr max_bounces]
+		page STRING "Contribution"
+		gaffer.layout.index INT 19
+
+	[attr bottom]
+		gaffer.plugType STRING ""
+	[attr top]
+		gaffer.plugType STRING ""
+	[attr matrix]
+		gaffer.plugType STRING ""
+	[attr filters]
+		gaffer.plugType STRING ""
+	[attr time_samples]
+		gaffer.plugType STRING ""
+	[attr motion_start]
+		gaffer.plugType STRING ""
+	[attr motion_end]
+		gaffer.plugType STRING ""
+
+#-------------------------------------------------------------------
+[node disk_light]
+
+	gaffer.layout.section.Shape.collapsed BOOL false
+	gaffer.layout.section.Sampling.collapsed BOOL false
+
+	[attr color]
+		gaffer.layout.index INT 0
+	[attr intensity]
+		gaffer.layout.index INT 1
+	[attr exposure]
+		gaffer.layout.index INT 2
+	[attr normalize]
+		gaffer.layout.index INT 3
+	[attr aov]
+		gaffer.layout.index INT 4
+
+	[attr radius]
+		page STRING "Shape"
+		gaffer.layout.index INT 5
+	[attr spread]
+		page STRING "Shape"
+		gaffer.layout.index INT 6
+
+	[attr samples]
+		page STRING "Sampling"
+		gaffer.layout.index INT 7
+	[attr volume_samples]
+		page STRING "Sampling"
+		gaffer.layout.index INT 8
+
+	[attr cast_shadows]
+		page STRING "Shadows"
+		gaffer.layout.index INT 9
+	[attr cast_volumetric_shadows]
+		page STRING "Shadows"
+		gaffer.layout.index INT 10
+	[attr shadow_density]
+		page STRING "Shadows"
+		gaffer.layout.index INT 11
+	[attr shadow_color]
+		page STRING "Shadows"
+		gaffer.layout.index INT 12
+
+	[attr camera]
+		page STRING "Contribution"
+		gaffer.layout.index INT 13
+	[attr transmission]
+		page STRING "Contribution"
+		gaffer.layout.index INT 14
+	[attr diffuse]
+		page STRING "Contribution"
+		gaffer.layout.index INT 15
+	[attr specular]
+		page STRING "Contribution"
+		gaffer.layout.index INT 16
+	[attr sss]
+		page STRING "Contribution"
+		gaffer.layout.index INT 17
+	[attr indirect]
+		page STRING "Contribution"
+		gaffer.layout.index INT 20
+	[attr volume]
+		page STRING "Contribution"
+		gaffer.layout.index INT 21
+	[attr max_bounces]
+		page STRING "Contribution"
+		gaffer.layout.index INT 22
+
+	[attr position]
+		gaffer.plugType STRING ""
+	[attr direction]
+		gaffer.plugType STRING ""
+	[attr matrix]
+		gaffer.plugType STRING ""
+	[attr filters]
+		gaffer.plugType STRING ""
+	[attr time_samples]
+		gaffer.plugType STRING ""
+	[attr motion_start]
+		gaffer.plugType STRING ""
+	[attr motion_end]
+		gaffer.plugType STRING ""
+
+#-------------------------------------------------------------------
+[node mesh_light]
+
+	gaffer.layout.section.Shape.collapsed BOOL false
+	gaffer.layout.section.Sampling.collapsed BOOL false
+
+	[attr color]
+		gaffer.layout.index INT 0
+	[attr intensity]
+		gaffer.layout.index INT 1
+	[attr exposure]
+		gaffer.layout.index INT 2
+	[attr normalize]
+		gaffer.layout.index INT 3
+	[attr aov]
+		gaffer.layout.index INT 4
+
+	[attr samples]
+		page STRING "Sampling"
+		gaffer.layout.index INT 5
+	[attr volume_samples]
+		page STRING "Sampling"
+		gaffer.layout.index INT 6
+
+	[attr cast_shadows]
+		page STRING "Shadows"
+		gaffer.layout.index INT 11
+	[attr cast_volumetric_shadows]
+		page STRING "Shadows"
+		gaffer.layout.index INT 12
+	[attr shadow_density]
+		page STRING "Shadows"
+		gaffer.layout.index INT 13
+	[attr shadow_color]
+		page STRING "Shadows"
+		gaffer.layout.index INT 14
+
+	[attr camera]
+		page STRING "Contribution"
+		gaffer.layout.index INT 15
+	[attr transmission]
+		page STRING "Contribution"
+		gaffer.layout.index INT 16
+	[attr diffuse]
+		page STRING "Contribution"
+		gaffer.layout.index INT 17
+	[attr specular]
+		page STRING "Contribution"
+		gaffer.layout.index INT 18
+	[attr sss]
+		page STRING "Contribution"
+		gaffer.layout.index INT 19
+	[attr indirect]
+		page STRING "Contribution"
+		gaffer.layout.index INT 20
+	[attr volume]
+		page STRING "Contribution"
+		gaffer.layout.index INT 21
+	[attr max_bounces]
+		page STRING "Contribution"
+		gaffer.layout.index INT 22
+
+	[attr mesh]
+		gaffer.plugType STRING ""
+	[attr matrix]
+		gaffer.plugType STRING ""
+	[attr filters]
+		gaffer.plugType STRING ""
+	[attr time_samples]
+		gaffer.plugType STRING ""
+	[attr motion_start]
+		gaffer.plugType STRING ""
+	[attr motion_end]
+		gaffer.plugType STRING ""
+
+#-------------------------------------------------------------------
+[node photometric_light]
+
+	gaffer.layout.section.Shape.collapsed BOOL false
+	gaffer.layout.section.Sampling.collapsed BOOL false
+
+	[attr color]
+		gaffer.layout.index INT 0
+	[attr intensity]
+		gaffer.layout.index INT 1
+	[attr exposure]
+		gaffer.layout.index INT 2
+	[attr normalize]
+		gaffer.layout.index INT 3
+	[attr aov]
+		gaffer.layout.index INT 4
+
+	[attr filename]
+		widget STRING "filename"
+		page STRING "Shape"
+		gaffer.layout.index INT 5
+	[attr radius]
+		page STRING "Shape"
+		gaffer.layout.index INT 6
+
+	[attr samples]
+		page STRING "Sampling"
+		gaffer.layout.index INT 7
+	[attr volume_samples]
+		page STRING "Sampling"
+		gaffer.layout.index INT 8
+
+	[attr cast_shadows]
+		page STRING "Shadows"
+		gaffer.layout.index INT 9
+	[attr cast_volumetric_shadows]
+		page STRING "Shadows"
+		gaffer.layout.index INT 10
+	[attr shadow_density]
+		page STRING "Shadows"
+		gaffer.layout.index INT 11
+	[attr shadow_color]
+		page STRING "Shadows"
+		gaffer.layout.index INT 12
+
+	[attr camera]
+		page STRING "Contribution"
+		gaffer.layout.index INT 13
+	[attr transmission]
+		page STRING "Contribution"
+		gaffer.layout.index INT 14
+	[attr diffuse]
+		page STRING "Contribution"
+		gaffer.layout.index INT 15
+	[attr specular]
+		page STRING "Contribution"
+		gaffer.layout.index INT 16
+	[attr sss]
+		page STRING "Contribution"
+		gaffer.layout.index INT 17
+	[attr indirect]
+		page STRING "Contribution"
+		gaffer.layout.index INT 20
+	[attr volume]
+		page STRING "Contribution"
+		gaffer.layout.index INT 21
+	[attr max_bounces]
+		page STRING "Contribution"
+		gaffer.layout.index INT 22
+
+	[attr matrix]
+		gaffer.plugType STRING ""
+	[attr filters]
+		gaffer.plugType STRING ""
+	[attr time_samples]
+		gaffer.plugType STRING ""
+	[attr motion_start]
+		gaffer.plugType STRING ""
+	[attr motion_end]
+		gaffer.plugType STRING ""
+
+# Standard Arnold Shaders
+##########################################################################
+
+[node abs]
+
+	primaryInput STRING "input"
+	gaffer.nodeMenu.category STRING "Maths"
+#-------------------------------------------------------------------
+
+[node add]
+
+	primaryInput STRING "input1"
+	gaffer.nodeMenu.category STRING "Maths"
+#-------------------------------------------------------------------
+
+[node ambient_occlusion]
+
+	gaffer.nodeMenu.category STRING "Surface"
+
+#-------------------------------------------------------------------
+[node aov_read_float]
+
+	gaffer.nodeMenu.category STRING "AOV"
+
+#-------------------------------------------------------------------
+[node aov_read_int]
+
+	gaffer.nodeMenu.category STRING "AOV"
+
+#-------------------------------------------------------------------
+[node aov_read_rgb]
+
+	gaffer.nodeMenu.category STRING "AOV"
+
+#-------------------------------------------------------------------
+[node aov_read_rgba]
+
+	gaffer.nodeMenu.category STRING "AOV"
+
+#-------------------------------------------------------------------
+[node aov_write_float]
+
+	gaffer.nodeMenu.category STRING "AOV"
+
+#-------------------------------------------------------------------
+[node aov_write_int]
+
+	gaffer.nodeMenu.category STRING "AOV"
+
+#-------------------------------------------------------------------
+[node aov_write_rgb]
+
+	gaffer.nodeMenu.category STRING "AOV"
+
+#-------------------------------------------------------------------
+[node aov_write_rgba]
+
+	gaffer.nodeMenu.category STRING "AOV"
+
+#-------------------------------------------------------------------
+[node aov_write_vector]
+
+	gaffer.nodeMenu.category STRING "AOV"
+
+#-------------------------------------------------------------------
+[node atan]
+
+	primaryInput STRING "y"
+	gaffer.nodeMenu.category STRING "Maths"
+
+#-------------------------------------------------------------------
+[node atmosphere_volume]
+
+	gaffer.nodeMenu.category STRING "Volume"
+
+#-------------------------------------------------------------------
+[node barndoor]
+
+	shaderType STRING "lightFilter"
+	gaffer.nodeMenu.category STRING "Light"
+
+	gaffer.layout.section.Top.collapsed BOOL false
+	gaffer.layout.section.Right.collapsed BOOL false
+	gaffer.layout.section.Bottom.collapsed BOOL false
+	gaffer.layout.section.Left.collapsed BOOL false
+
+	[attr barndoor_top_left]
+		page STRING "Top"
+		label STRING "Left"
+
+	[attr barndoor_top_right]
+		page STRING "Top"
+		label STRING "Right"
+
+	[attr barndoor_top_edge]
+		page STRING "Top"
+		label STRING "Edge"
+
+	[attr barndoor_right_top]
+		page STRING "Right"
+		label STRING "Top"
+
+	[attr barndoor_right_bottom]
+		page STRING "Right"
+		label STRING "Bottom"
+
+	[attr barndoor_right_edge]
+		page STRING "Right"
+		label STRING "Edge"
+
+	[attr barndoor_bottom_left]
+		page STRING "Bottom"
+		label STRING "Left"
+
+	[attr barndoor_bottom_right]
+		page STRING "Bottom"
+		label STRING "Right"
+
+	[attr barndoor_bottom_edge]
+		page STRING "Bottom"
+		label STRING "Edge"
+
+	[attr barndoor_left_top]
+		page STRING "Left"
+		label STRING "Top"
+
+	[attr barndoor_left_bottom]
+		page STRING "Left"
+		label STRING "Bottom"
+
+	[attr barndoor_left_edge]
+		page STRING "Left"
+		label STRING "Edge"
+
+#-------------------------------------------------------------------
+[node blackbody]
+
+	gaffer.nodeMenu.category STRING "utility/shader"
+
+#-------------------------------------------------------------------
+[node bump2d]
+
+	gaffer.nodeMenu.category STRING "utility/shader"
+
+#-------------------------------------------------------------------
+[node bump3d]
+
+	gaffer.nodeMenu.category STRING "utility/shader"
+
+#-------------------------------------------------------------------
+[node cache]
+
+	primaryInput STRING "input"
+	gaffer.nodeMenu.category STRING "Texture"
+
+#-------------------------------------------------------------------
+[node camera_projection]
+
+	gaffer.nodeMenu.category STRING "utility/shader"
+
+	[attr camera]
+		gaffer.plugType STRING ""
+
+#-------------------------------------------------------------------
+[node car_paint]
+
+	gaffer.nodeMenu.category STRING "Surface"
+
+	gaffer.graphEditorLayout.defaultVisibility BOOL false
+
+
+	[attr base]
+		gaffer.graphEditorLayout.visible BOOL true
+		page STRING "Base"
+	[attr base_color]
+		gaffer.graphEditorLayout.visible BOOL true
+		page STRING "Base"
+	[attr base_roughness]
+		page STRING "Base"
+		gaffer.graphEditorLayout.visible BOOL true
+
+	[attr specular]
+		gaffer.graphEditorLayout.visible BOOL true
+		page STRING "Specular"
+	[attr specular_color]
+		gaffer.graphEditorLayout.visible BOOL true
+		page STRING "Specular"
+	[attr specular_roughness]
+		gaffer.graphEditorLayout.visible BOOL true
+		page STRING "Specular"
+	[attr specular_IOR]
+		page STRING "Specular"
+
+	[attr specular_flip_flop]
+		page STRING "Specular"
+	[attr specular_light_facing]
+		page STRING "Specular"
+	[attr specular_falloff]
+		page STRING "Specular"
+
+	[attr transmission_color]
+		page STRING "Transmission"
+
+	[attr flake_color]
+		gaffer.graphEditorLayout.visible BOOL true
+		page STRING "Flake"
+	[attr flake_roughness]
+		gaffer.graphEditorLayout.visible BOOL true
+		page STRING "Flake"
+	[attr flake_IOR]
+		page STRING "Flake"
+
+	[attr flake_scale]
+		page STRING "Flake"
+	[attr flake_density]
+		page STRING "Flake"
+	[attr flake_layers]
+		page STRING "Flake"
+	[attr flake_normal_randomize]
+		page STRING "Flake"
+	[attr flake_coord_space]
+		page STRING "Flake"
+	[attr pref_name]
+		page STRING "Flake"
+
+	[attr flake_flip_flop]
+		page STRING "Flake"
+	[attr flake_light_facing]
+		page STRING "Flake"
+	[attr flake_falloff]
+		page STRING "Flake"
+
+	[attr coat]
+		page STRING "Coat"
+	[attr coat_color]
+		page STRING "Coat"
+	[attr coat_roughness]
+		page STRING "Coat"
+	[attr coat_IOR]
+		page STRING "Coat"
+	[attr coat_normal]
+		gaffer.graphEditorLayout.visible BOOL true
+		page STRING "Coat"
+
+#-------------------------------------------------------------------
+[node cell_noise]
+
+	gaffer.nodeMenu.category STRING "Texture"
+
+#-------------------------------------------------------------------
+[node checkerboard]
+
+	gaffer.nodeMenu.category STRING "Texture"
+
+#-------------------------------------------------------------------
+[node clamp]
+
+	primaryInput STRING "input"
+	gaffer.nodeMenu.category STRING "utility/shader"
+
+#-------------------------------------------------------------------
+[node clip_geo]
+
+	gaffer.nodeMenu.category STRING "Surface"
+
+#-------------------------------------------------------------------
+[node color_convert]
+
+	primaryInput STRING "input"
+	gaffer.nodeMenu.category STRING "utility/shader"
+#-------------------------------------------------------------------
+
+[node color_correct]
+	gaffer.nodeMenu.category STRING "utility/shader"
+	
+	[attr input]
+		label STRING "Input"
+		gaffer.layout.index INT 1		
+	[attr mask]
+		label STRING "Mask"	
+		gaffer.layout.index INT 2
+
+	[attr gamma]
+		label STRING "Gamma"
+		page STRING "Color Correction"	
+		gaffer.layout.index INT 3		
+	[attr hue_shift]
+		label STRING "Hue Shift"
+		page STRING "Color Correction"
+		gaffer.layout.index INT 4		
+	[attr saturation]
+		label STRING "Saturation"
+		page STRING "Color Correction"
+		gaffer.layout.index INT 5		
+	[attr contrast]
+		label STRING "Contrast"	
+		page STRING "Color Correction"	
+		gaffer.layout.index INT 6		
+	[attr contrast_pivot]
+		label STRING "Contrast Pivot"
+		page STRING "Color Correction"
+		gaffer.layout.index INT 7		
+	[attr exposure]
+		label STRING "Exposure"	
+		page STRING "Color Correction"
+		gaffer.layout.index INT 8		
+	[attr multiply]
+		label STRING "Multiply"
+		page STRING "Color Correction"
+		gaffer.layout.index INT 9		
+	[attr add]
+		label STRING "Add"
+		page STRING "Color Correction"	
+		gaffer.layout.index INT 10		
+	[attr invert]	
+		label STRING "Invert"
+		page STRING "Color Correction"	
+		gaffer.layout.index INT 11		
+		
+	[attr alpha_is_luminance]
+		label STRING "is Luminance"	
+		page STRING "Alpha"	
+		gaffer.layout.index INT 12		
+	[attr alpha_multiply]
+		label STRING "Multiply"	
+		page STRING "Alpha"	
+		gaffer.layout.index INT 13		
+	[attr alpha_add]
+		label STRING "Add"
+		page STRING "Alpha"	
+		gaffer.layout.index INT 14		
+	[attr invert_alpha]
+		label STRING "Invert"
+		page STRING "Alpha"	
+		gaffer.layout.index INT 15		
+
+#-------------------------------------------------------------------
+[node color_jitter]
+
+	primaryInput STRING "input"
+	gaffer.nodeMenu.category STRING "utility/shader"
+
+#-------------------------------------------------------------------
+[node compare]
+
+	gaffer.nodeMenu.category STRING "Maths"
+
+#-------------------------------------------------------------------
+[node complement]
+
+	primaryInput STRING "input"
+	gaffer.nodeMenu.category STRING "Maths"
+
+#-------------------------------------------------------------------
+[node complex_ior]
+
+	gaffer.nodeMenu.category STRING "utility/shader"
+
+#-------------------------------------------------------------------
+[node composite]
+
+	primaryInput STRING "B"
+	gaffer.nodeMenu.category STRING "utility/shader"
+
+#-------------------------------------------------------------------
+[node cross]
+
+	primaryInput STRING "input1"
+	gaffer.nodeMenu.category STRING "Maths"
+
+#-------------------------------------------------------------------
+[node cryptomatte]
+
+	gaffer.nodeMenu.category STRING "Utility"
+
+#-------------------------------------------------------------------
+[node curvature]
+
+	primaryInput STRING "color1"
+	gaffer.nodeMenu.category STRING "Utility"
+
+#-------------------------------------------------------------------
+[node divide]
+
+	primaryInput STRING "input1"
+	gaffer.nodeMenu.category STRING "Maths"
+
+#-------------------------------------------------------------------
+[node dot]
+
+	gaffer.nodeMenu.category STRING "Maths"
+
+#-------------------------------------------------------------------
+[node exp]
+
+	primaryInput STRING "input"
+	gaffer.nodeMenu.category STRING "Maths"
+
+#-------------------------------------------------------------------
+[node facing_ratio]
+
+	gaffer.nodeMenu.category STRING "utility/shader"
+
+#-------------------------------------------------------------------
+[node flakes]
+
+	gaffer.nodeMenu.category STRING "Texture"
+
+#-------------------------------------------------------------------
+[node flat]
+
+	primaryInput STRING "color"
+	gaffer.nodeMenu.category STRING "Surface"
+
+#-------------------------------------------------------------------
+[node float_to_int]
+
+	gaffer.nodeMenu.category STRING "Utility/conversion"
+
+#-------------------------------------------------------------------
+[node float_to_matrix]
+	gaffer.nodeMenu.category STRING "Utility/conversion"
+	gaffer.layout.section.Matrix_1.collapsed BOOL false	
+	[attr input_00]
+		gaffer.graphEditorLayout.visible BOOL true
+		page STRING "Matrix_1"	
+		label STRING "Input 00"		
+	[attr input_01]
+		gaffer.graphEditorLayout.visible BOOL true
+		page STRING "Matrix_1"	
+		label STRING "Input 01"		
+	[attr input_02]
+		gaffer.graphEditorLayout.visible BOOL true
+		page STRING "Matrix_1"	
+		label STRING "Input 02"		
+	[attr input_03]
+		gaffer.graphEditorLayout.visible BOOL true
+		page STRING "Matrix_1"	
+		label STRING "Input 03"		
+	
+	[attr input_10]
+		gaffer.graphEditorLayout.visible BOOL true
+		page STRING "Matrix_2"	
+		label STRING "Input 10"		
+	[attr input_11]
+		gaffer.graphEditorLayout.visible BOOL true
+		page STRING "Matrix_2"	
+		label STRING "Input 11"		
+	[attr input_12]
+		gaffer.graphEditorLayout.visible BOOL true
+		page STRING "Matrix_2"	
+		label STRING "Input 12"		
+	[attr input_13]
+			gaffer.graphEditorLayout.visible BOOL true
+		page STRING "Matrix_2"	
+		label STRING "Input 13"	
+
+	[attr input_20]
+		gaffer.graphEditorLayout.visible BOOL true
+		page STRING "Matrix_3"	
+		label STRING "Input 20"		
+	[attr input_21]
+		gaffer.graphEditorLayout.visible BOOL true
+		page STRING "Matrix_3"	
+		label STRING "Input 21"		
+	[attr input_22]
+		gaffer.graphEditorLayout.visible BOOL true
+		page STRING "Matrix_3"	
+		label STRING "Input 22"		
+	[attr input_23]
+			gaffer.graphEditorLayout.visible BOOL true
+		page STRING "Matrix_3"	
+		label STRING "Input 23"	
+
+	[attr input_30]
+		gaffer.graphEditorLayout.visible BOOL true
+		page STRING "Matrix_4"	
+		label STRING "Input 30"		
+	[attr input_31]
+		gaffer.graphEditorLayout.visible BOOL true
+		page STRING "Matrix_4"	
+		label STRING "Input 31"		
+	[attr input_32]
+		gaffer.graphEditorLayout.visible BOOL true
+		page STRING "Matrix_4"	
+		label STRING "Input 33"	
+	[attr input_33]	
+		gaffer.graphEditorLayout.visible BOOL true
+		page STRING "Matrix_4"	
+		label STRING "Input 33"	
+
+#-------------------------------------------------------------------
+[node float_to_rgb]
+
+	gaffer.nodeMenu.category STRING "Utility/conversion"
+
+#-------------------------------------------------------------------
+[node float_to_rgba]
+
+	gaffer.nodeMenu.category STRING "Utility/conversion"
+
+#-------------------------------------------------------------------
+[node fog]
+
+	gaffer.nodeMenu.category STRING "Atmosphere"
+
+#-------------------------------------------------------------------
+[node fraction]
+
+	primaryInput STRING "input"
+	gaffer.nodeMenu.category STRING "Maths"
+
+#-------------------------------------------------------------------
+[node gobo]
+
+	shaderType STRING "lightFilter"
+	gaffer.nodeMenu.category STRING "Light"
+
+	[attr rotate]
+		gaffer.plugType STRING "FloatPlug"
+
+#-------------------------------------------------------------------
+[node hair]
+
+	# DEPRECATED
+	gaffer.nodeMenu.category STRING ""
+
+#-------------------------------------------------------------------
+[node image]
+	gaffer.nodeMenu.category STRING "Texture"
+	gaffer.layout.section.ImgAttributes.collapsed BOOL false
+	[attr filter]
+		label STRING "Filter Type"	
+		gaffer.layout.index INT 1
+		page STRING "ImgAttributes"		
+	[attr mipmap_bias]
+		label STRING "Mip-map Bias"		
+		gaffer.layout.index INT 2
+		page STRING "ImgAttributes"			
+	[attr filename]
+		widget STRING "filename"	
+		gaffer.layout.index INT 3
+		page STRING "ImgAttributes"			
+	[attr multiply]
+		label STRING "Multiply"		
+		gaffer.layout.index INT 4
+		page STRING "ImgAttributes"			
+	[attr offset]
+		label STRING "Offset"		
+		gaffer.layout.index INT 5
+		page STRING "ImgAttributes"			
+	[attr single_channel]
+		label STRING "Single Channel"		
+		gaffer.layout.index INT 6
+		page STRING "ImgAttributes"			
+	[attr start_channel]
+		label STRING "Start Channel"	
+		gaffer.layout.index INT 7
+		page STRING "ImgAttributes"			
+	[attr ignore_missing_textures]
+		label STRING "Ignore Missing Textures"	
+		gaffer.layout.index INT 8
+		page STRING "ImgAttributes"			
+	[attr missing_texture_color]
+		label STRING "Missing Texture Color"	
+		gaffer.layout.index INT 9
+		page STRING "ImgAttributes"			
+
+	[attr color_space]
+		label STRING "Color Space"	
+		gaffer.layout.index INT 10
+		page STRING "Color Space"		
+	[attr uvset]
+		label STRING "UV Set"
+		gaffer.layout.index INT 11
+		page STRING "UV Coordinates"		
+	[attr uvcoords]
+		label STRING "UV Coords"
+		gaffer.layout.index INT 12	
+		page STRING "UV Coordinates"		
+	[attr soffset]
+		label STRING "Offset U"	
+		gaffer.layout.index INT 13
+		page STRING "UV Coordinates"		
+	[attr toffset]
+		label STRING "Offset V"		
+		gaffer.layout.index INT 14
+		page STRING "UV Coordinates"		
+	[attr swrap]
+		label STRING "Wrap U"		
+		gaffer.layout.index INT 15
+		page STRING "UV Coordinates"		
+	[attr twrap]
+		label STRING "Wrap V"	
+		gaffer.layout.index INT 16
+		page STRING "UV Coordinates"		
+	[attr sscale]
+		label STRING "Scale U"	
+		gaffer.layout.index INT 17
+		page STRING "UV Coordinates"
+	[attr tscale]
+		label STRING "Scale V"		
+		gaffer.layout.index INT 18
+		page STRING "UV Coordinates"		
+	[attr sflip]
+		label STRING "Flip U"	
+		gaffer.layout.index INT 19
+		page STRING "UV Coordinates"		
+	[attr tflip]
+		label STRING "Flip V"	
+		gaffer.layout.index INT 20
+		page STRING "UV Coordinates"		
+	[attr swap_st]
+		label STRING "Swap UV"
+		gaffer.layout.index INT 21
+		page STRING "UV Coordinates"		
+
+
+#-------------------------------------------------------------------
+[node is_finite]
+
+	gaffer.nodeMenu.category STRING "Maths"
+
+#-------------------------------------------------------------------
+[node lambert]
+
+	gaffer.nodeMenu.category STRING "Surface"
+#-------------------------------------------------------------------
+[node layer_float]
+	gaffer.nodeMenu.category STRING "utility/shader"
+	gaffer.layout.section.Layer1.collapsed BOOL false
+
+	[attr enable1]
+		label STRING "Enable"
+		page STRING "Layer1"
+		gaffer.layout.index INT 1	
+	[attr name1]
+		label STRING "Name"
+		page STRING "Layer1"
+		gaffer.layout.index INT 2	
+	[attr input1]		
+		label STRING "Input"
+		page STRING "Layer1"
+		gaffer.layout.index INT 3	
+	[attr mix1]
+		label STRING "Mix"
+		page STRING "Layer1"
+		gaffer.layout.index INT 4			
+
+	[attr enable2]
+		label STRING "Enable"
+		page STRING "Layer 2"
+		gaffer.layout.index INT 5	
+	[attr name2]
+		label STRING "Name"
+		page STRING "Layer 2"
+		gaffer.layout.index INT 6	
+	[attr input2]		
+		label STRING "Input"
+		page STRING "Layer 2"
+		gaffer.layout.index INT 7	
+	[attr mix2]
+		label STRING "Mix"
+		page STRING "Layer 2"
+		gaffer.layout.index INT 8			
+
+	[attr enable3]
+		label STRING "Enable"
+		page STRING "Layer 3"
+		gaffer.layout.index INT 9	
+	[attr name3]
+		label STRING "Name"
+		page STRING "Layer 3"
+		gaffer.layout.index INT 10	
+	[attr input3]		
+		label STRING "Input"
+		page STRING "Layer 3"
+		gaffer.layout.index INT 11	
+	[attr mix3]
+		label STRING "Mix"
+		page STRING "Layer 3"
+		gaffer.layout.index INT 12			
+
+	[attr enable4]
+		label STRING "Enable"
+		page STRING "Layer 4"
+		gaffer.layout.index INT 13	
+	[attr name4]
+		label STRING "Name"
+		page STRING "Layer 4"
+		gaffer.layout.index INT 14	
+	[attr input4]		
+		label STRING "Input"
+		page STRING "Layer 4"
+		gaffer.layout.index INT 15	
+	[attr mix4]
+		label STRING "Mix"
+		page STRING "Layer 4"
+		gaffer.layout.index INT 16			
+
+	[attr enable5]
+		label STRING "Enable"
+		page STRING "Layer 5"
+		gaffer.layout.index INT 17	
+	[attr name5]
+		label STRING "Name"
+		page STRING "Layer 5"
+		gaffer.layout.index INT 18	
+	[attr input5]		
+		label STRING "Input"
+		page STRING "Layer 5"
+		gaffer.layout.index INT 19	
+	[attr mix5]
+		label STRING "Mix"
+		page STRING "Layer 5"
+		gaffer.layout.index INT 20			
+
+	[attr enable6]
+		label STRING "Enable"
+		page STRING "Layer 6"
+		gaffer.layout.index INT 21	
+	[attr name6]
+		label STRING "Name"
+		page STRING "Layer 6"
+		gaffer.layout.index INT 22	
+	[attr input6]		
+		label STRING "Input"
+		page STRING "Layer 6"
+		gaffer.layout.index INT 23	
+	[attr mix6]
+		label STRING "Mix"
+		page STRING "Layer 6"
+		gaffer.layout.index INT 24			
+
+	[attr enable7]
+		label STRING "Enable"
+		page STRING "Layer 7"
+		gaffer.layout.index INT 25	
+	[attr name7]
+		label STRING "Name"
+		page STRING "Layer 7"
+		gaffer.layout.index INT 26	
+	[attr input7]		
+		label STRING "Input"
+		page STRING "Layer 7"
+		gaffer.layout.index INT 27	
+	[attr mix7]
+		label STRING "Mix"
+		page STRING "Layer 7"
+		gaffer.layout.index INT 28
+
+	[attr enable8]
+		label STRING "Enable"
+		page STRING "Layer 8"
+		gaffer.layout.index INT 29	
+	[attr name8]
+		label STRING "Name"
+		page STRING "Layer 8"
+		gaffer.layout.index INT 30	
+	[attr input8]		
+		label STRING "Input"
+		page STRING "Layer 8"
+		gaffer.layout.index INT 31	
+	[attr mix8]
+		label STRING "Mix"
+		page STRING "Layer 8"
+		gaffer.layout.index INT 32			
+
+#-------------------------------------------------------------------
+[node layer_rgba]
+	gaffer.nodeMenu.category STRING "utility/shader"
+	gaffer.layout.section.Layer1.collapsed BOOL false
+
+	[attr enable1]
+		label STRING "Enable"
+		page STRING "Layer1"
+		gaffer.layout.index INT 1	
+	[attr name1]
+		label STRING "Name"
+		page STRING "Layer1"
+		gaffer.layout.index INT 2	
+	[attr input1]		
+		label STRING "Input"
+		page STRING "Layer1"
+		gaffer.layout.index INT 3	
+	[attr operation1]
+		label STRING "Operation"
+		page STRING "Layer1"
+		gaffer.layout.index INT 4	
+	[attr mix1]
+		label STRING "Mix"
+		page STRING "Layer1"
+		gaffer.layout.index INT 5			
+	[attr alpha_operation1]
+		label STRING "Alpha Channel Operation"
+		page STRING "Layer1"
+		gaffer.layout.index INT 6
+
+	[attr enable2]
+		label STRING "Enable"
+		page STRING "Layer 2"
+		gaffer.layout.index INT 7	
+	[attr name2]
+		label STRING "Name"
+		page STRING "Layer 2"
+		gaffer.layout.index INT 8	
+	[attr input2]		
+		label STRING "Input"
+		page STRING "Layer 2"
+		gaffer.layout.index INT 9	
+	[attr operation2]
+		label STRING "Operation"
+		page STRING "Layer 2"
+		gaffer.layout.index INT 10	
+	[attr mix2]
+		label STRING "Mix"
+		page STRING "Layer 2"
+		gaffer.layout.index INT 11			
+	[attr alpha_operation2]
+		label STRING "Alpha Channel Operation"
+		page STRING "Layer 2"
+		gaffer.layout.index INT 12
+
+	[attr enable3]
+		label STRING "Enable"
+		page STRING "Layer 3"
+		gaffer.layout.index INT 13	
+	[attr name3]
+		label STRING "Name"
+		page STRING "Layer 3"
+		gaffer.layout.index INT 14	
+	[attr input3]		
+		label STRING "Input"
+		page STRING "Layer 3"
+		gaffer.layout.index INT 15	
+	[attr operation3]
+		label STRING "Operation"
+		page STRING "Layer 3"
+		gaffer.layout.index INT 16	
+	[attr mix3]
+		label STRING "Mix"
+		page STRING "Layer 3"
+		gaffer.layout.index INT 17			
+	[attr alpha_operation3]
+		label STRING "Alpha Channel Operation"
+		page STRING "Layer 3"
+		gaffer.layout.index INT 18
+
+	[attr enable4]
+		label STRING "Enable"
+		page STRING "Layer 4"
+		gaffer.layout.index INT 19	
+	[attr name4]
+		label STRING "Name"
+		page STRING "Layer 4"
+		gaffer.layout.index INT 20	
+	[attr input4]		
+		label STRING "Input"
+		page STRING "Layer 4"
+		gaffer.layout.index INT 21	
+	[attr operation4]
+		label STRING "Operation"
+		page STRING "Layer 4"
+		gaffer.layout.index INT 22	
+	[attr mix4]
+		label STRING "Mix"
+		page STRING "Layer 4"
+		gaffer.layout.index INT 23			
+	[attr alpha_operation4]
+		label STRING "Alpha Channel Operation"
+		page STRING "Layer 4"
+		gaffer.layout.index INT 24
+
+	[attr enable5]
+		label STRING "Enable"
+		page STRING "Layer 5"
+		gaffer.layout.index INT 25	
+	[attr name5]
+		label STRING "Name"
+		page STRING "Layer 5"
+		gaffer.layout.index INT 26	
+	[attr input5]		
+		label STRING "Input"
+		page STRING "Layer 5"
+		gaffer.layout.index INT 27	
+	[attr operation5]
+		label STRING "Operation"
+		page STRING "Layer 5"
+		gaffer.layout.index INT 28	
+	[attr mix5]
+		label STRING "Mix"
+		page STRING "Layer 5"
+		gaffer.layout.index INT 29			
+	[attr alpha_operation5]
+		label STRING "Alpha Channel Operation"
+		page STRING "Layer 5"
+		gaffer.layout.index INT 30
+
+	[attr enable6]
+		label STRING "Enable"
+		page STRING "Layer 6"
+		gaffer.layout.index INT 31	
+	[attr name6]
+		label STRING "Name"
+		page STRING "Layer 6"
+		gaffer.layout.index INT 32	
+	[attr input6]		
+		label STRING "Input"
+		page STRING "Layer 6"
+		gaffer.layout.index INT 33	
+	[attr operation6]
+		label STRING "Operation"
+		page STRING "Layer 6"
+		gaffer.layout.index INT 34	
+	[attr mix6]
+		label STRING "Mix"
+		page STRING "Layer 6"
+		gaffer.layout.index INT 35			
+	[attr alpha_operation6]
+		label STRING "Alpha Channel Operation"
+		page STRING "Layer 6"
+		gaffer.layout.index INT 36
+
+	[attr enable7]
+		label STRING "Enable"
+		page STRING "Layer 7"
+		gaffer.layout.index INT 37	
+	[attr name7]
+		label STRING "Name"
+		page STRING "Layer 7"
+		gaffer.layout.index INT 38	
+	[attr input7]		
+		label STRING "Input"
+		page STRING "Layer 7"
+		gaffer.layout.index INT 39	
+	[attr operation7]
+		label STRING "Operation"
+		page STRING "Layer 7"
+		gaffer.layout.index INT 40
+	[attr mix7]
+		label STRING "Mix"
+		page STRING "Layer 7"
+		gaffer.layout.index INT 41
+	[attr alpha_operation7]
+		label STRING "Alpha Channel Operation"
+		page STRING "Layer 7"
+		gaffer.layout.index INT 42
+
+	[attr enable8]
+		label STRING "Enable"
+		page STRING "Layer 8"
+		gaffer.layout.index INT 43	
+	[attr name8]
+		label STRING "Name"
+		page STRING "Layer 8"
+		gaffer.layout.index INT 44	
+	[attr input8]		
+		label STRING "Input"
+		page STRING "Layer 8"
+		gaffer.layout.index INT 45	
+	[attr operation8]
+		label STRING "Operation"
+		page STRING "Layer 8"
+		gaffer.layout.index INT 46
+	[attr mix8]
+		label STRING "Mix"
+		page STRING "Layer 8"
+		gaffer.layout.index INT 47			
+	[attr alpha_operation8]
+		label STRING "Alpha Channel Operation"
+		page STRING "Layer 8"
+		gaffer.layout.index INT 48
+	[attr clamp]
+		page STRING "Clamp"	
+		gaffer.layout.index INT 49	
+#-------------------------------------------------------------------		
+[node layer_shader]
+	gaffer.nodeMenu.category STRING "Surface"
+	gaffer.layout.section.Layer_1.collapsed BOOL false
+
+	[attr enable1]
+		page STRING "Layer_1"	
+		label STRING "Enable"		
+	[attr name1]
+		page STRING "Layer_1"	
+		label STRING "Name"		
+	[attr input1]
+		page STRING "Layer_1"	
+		label STRING "Input"		
+	[attr mix1]
+		page STRING "Layer_1"	
+		label STRING "Mix"		
+
+	[attr enable2]
+		page STRING "Layer_2"	
+		label STRING "Enable"		
+	[attr name2]
+		page STRING "Layer_2"	
+		label STRING "Name"		
+	[attr input2]
+		page STRING "Layer_2"	
+		label STRING "Input"		
+	[attr mix2]
+		page STRING "Layer_2"	
+		label STRING "Mix"
+
+	[attr enable3]
+		page STRING "Layer_3"	
+		label STRING "Enable"		
+	[attr name3]
+		page STRING "Layer_3"	
+		label STRING "Name"		
+	[attr input3]
+		page STRING "Layer_3"	
+		label STRING "Input"		
+	[attr mix3]
+		page STRING "Layer_3"	
+		label STRING "Mix"	
+
+	[attr enable4]
+		page STRING "Layer_4"	
+		label STRING "Enable"		
+	[attr name4]
+		page STRING "Layer_4"	
+		label STRING "Name"		
+	[attr input4]
+		page STRING "Layer_4"	
+		label STRING "Input"		
+	[attr mix4]
+		page STRING "Layer_4"	
+		label STRING "Mix"
+
+	[attr enable5]
+		page STRING "Layer_5"	
+		label STRING "Enable"		
+	[attr name5]
+		page STRING "Layer_5"	
+		label STRING "Name"		
+	[attr input5]
+		page STRING "Layer_5"	
+		label STRING "Input"		
+	[attr mix5]
+		page STRING "Layer_5"	
+		label STRING "Mix"
+
+	[attr enable6]
+		page STRING "Layer_6"	
+		label STRING "Enable"		
+	[attr name6]
+		page STRING "Layer_6"	
+		label STRING "Name"		
+	[attr input6]
+		page STRING "Layer_6"	
+		label STRING "Input"		
+	[attr mix6]
+		page STRING "Layer_6"	
+		label STRING "Mix"
+
+	[attr enable7]
+		page STRING "Layer_7"	
+		label STRING "Enable"		
+	[attr name7]
+		page STRING "Layer_7"	
+		label STRING "Name"		
+	[attr input7]
+		page STRING "Layer_7"	
+		label STRING "Input"		
+	[attr mix7]
+		page STRING "Layer_7"	
+		label STRING "Mix"
+
+	[attr enable8]
+		page STRING "Layer_8"	
+		label STRING "Enable"		
+	[attr name8]
+		page STRING "Layer_8"	
+		label STRING "Name"		
+	[attr input8]
+		page STRING "Layer_8"	
+		label STRING "Input"		
+	[attr mix8]
+		page STRING "Layer_8"	
+		label STRING "Mix"
+
+#-------------------------------------------------------------------
+[node length]
+
+	gaffer.nodeMenu.category STRING "Maths"
+
+#-------------------------------------------------------------------
+[node light_blocker]
+
+	shaderType STRING "lightFilter"
+	gaffer.nodeMenu.category STRING "Light"
+	gaffer.graphEditorLayout.defaultVisibility BOOL false
+
+	[attr width_edge]
+		page STRING "Falloff"
+	[attr height_edge]
+		page STRING "Falloff"
+	[attr ramp]
+		gaffer.graphEditorLayout.visible BOOL false
+		page STRING "Falloff"
+	[attr axis]
+		page STRING "Falloff"
+
+	[attr geometry_matrix]
+		widget STRING "null"
+		gaffer.plugType STRING ""
+
+	[attr shader]
+		gaffer.graphEditorLayout.visible BOOL true
+
+#-------------------------------------------------------------------
+[node light_decay]
+
+	shaderType STRING "lightFilter"
+	gaffer.nodeMenu.category STRING "Light"
+
+	gaffer.layout.section.Near.collapsed BOOL false
+	gaffer.layout.section.Far.collapsed BOOL false
+
+	[attr use_near_atten]
+		page STRING "Near"
+		label STRING "Enable"
+
+	[attr use_far_atten]
+		page STRING "Far"
+		label STRING "Enable"
+
+	[attr near_start]
+		page STRING "Near"
+		label STRING "Start"
+
+	[attr near_end]
+		page STRING "Near"
+		label STRING "End"
+
+	[attr far_start]
+		page STRING "Far"
+		label STRING "Start"
+
+	[attr far_end]
+		page STRING "Far"
+		label STRING "End"
+
+#-------------------------------------------------------------------
+[node log]
+
+	primaryInput STRING "input"
+	gaffer.nodeMenu.category STRING "Maths"
+
+#-------------------------------------------------------------------
+[node matrix_interpolate]
+
+	gaffer.nodeMenu.category STRING "Maths"
+
+#-------------------------------------------------------------------
+[node matrix_multiply_vector]
+
+	gaffer.nodeMenu.category STRING "Maths"
+
+#-------------------------------------------------------------------
+[node matrix_transform]
+
+	gaffer.nodeMenu.category STRING "Maths"
+
+#-------------------------------------------------------------------
+[node matte]
+
+	primaryInput STRING "passthrough"
+	gaffer.nodeMenu.category STRING "Utility"
+
+#-------------------------------------------------------------------
+[node max]
+
+	primaryInput STRING "input1"
+	gaffer.nodeMenu.category STRING "Maths"
+
+#-------------------------------------------------------------------
+[node min]
+
+	primaryInput STRING "input1"
+	gaffer.nodeMenu.category STRING "Maths"
+
+#-------------------------------------------------------------------
+[node mix_rgba]
+
+	primaryInput STRING "input1"
+	gaffer.nodeMenu.category STRING "Utility/conversion"
+
+#-------------------------------------------------------------------
+[node mix_shader]
+
+	primaryInput STRING "shader1"
+	gaffer.nodeMenu.category STRING "Surface"
+
+#-------------------------------------------------------------------
+[node modulo]
+
+	primaryInput STRING "input"
+	gaffer.nodeMenu.category STRING "Maths"
+
+#-------------------------------------------------------------------
+[node motion_vector]
+
+	gaffer.nodeMenu.category STRING "utility/shader"
+
+#-------------------------------------------------------------------
+[node multiply]
+	primaryInput STRING "input1"
+	gaffer.nodeMenu.category STRING "Maths"
+
+#-------------------------------------------------------------------
+[node negate]
+
+	primaryInput STRING "input"
+	gaffer.nodeMenu.category STRING "Maths"
+
+#-------------------------------------------------------------------
+[node noise]
+
+	gaffer.nodeMenu.category STRING "Texture"
+
+#-------------------------------------------------------------------
+[node normal_map]
+
+	gaffer.nodeMenu.category STRING "utility/shader"
+
+#-------------------------------------------------------------------
+[node normalize]
+
+	primaryInput STRING "input"
+	gaffer.nodeMenu.category STRING "Maths"
+
+#-------------------------------------------------------------------
+[node osl]
+
+	# In Gaffer, you should load OSL shaders in Gaffer, or use OSLCode, which will be
+	# translated into this in the backend
+	gaffer.nodeMenu.category STRING "utility/shader"
+
+#-------------------------------------------------------------------
+[node passthrough]
+
+	primaryInput STRING "passthrough"
+	gaffer.nodeMenu.category STRING "Utility"
+
+#-------------------------------------------------------------------
+[node physical_sky]
+
+	gaffer.nodeMenu.category STRING "Light"
+
+#-------------------------------------------------------------------
+[node pow]
+
+	primaryInput STRING "base"
+	gaffer.nodeMenu.category STRING "Maths"
+
+#-------------------------------------------------------------------
+[node ramp_float]
+
+	gaffer.nodeMenu.category STRING "utility/shader"
+
+#-------------------------------------------------------------------
+[node ramp_rgb]
+
+	gaffer.nodeMenu.category STRING "utility/shader"
+
+#-------------------------------------------------------------------
+[node random]
+
+	primaryInput STRING "input_color"
+	gaffer.nodeMenu.category STRING "Maths"
+
+#-------------------------------------------------------------------
+[node range]
+
+	primaryInput STRING "input"
+	gaffer.nodeMenu.category STRING "utility/shader"
+
+#-------------------------------------------------------------------
+[node ray_switch_rgba]
+
+	gaffer.nodeMenu.category STRING "Utility"
+
+#-------------------------------------------------------------------
+[node ray_switch_shader]
+
+	gaffer.nodeMenu.category STRING "Utility"
+
+#-------------------------------------------------------------------
+[node reciprocal]
+
+	primaryInput STRING "input"
+	gaffer.nodeMenu.category STRING "Maths"
+
+#-------------------------------------------------------------------
+[node rgb_to_float]
+
+	gaffer.nodeMenu.category STRING "Utility/conversion"
+
+#-------------------------------------------------------------------
+[node rgb_to_rgba]
+
+	gaffer.nodeMenu.category STRING "Utility/conversion"
+
+#-------------------------------------------------------------------
+[node rgb_to_vector]
+
+	gaffer.nodeMenu.category STRING "Utility/conversion"
+
+#-------------------------------------------------------------------
+[node rgba_to_float]
+
+	gaffer.nodeMenu.category STRING "Utility/conversion"
+
+#-------------------------------------------------------------------
+[node round_corners]
+
+	gaffer.nodeMenu.category STRING "utility/shader"
+
+#-------------------------------------------------------------------
+[node shadow_matte]
+	gaffer.nodeMenu.category STRING "Utility"
+	gaffer.layout.section.Background.collapsed BOOL false
+	
+	[attr background]
+		label STRING "Background"
+		page STRING "Background"
+		gaffer.layout.index INT 1		
+	[attr background_color]
+		label STRING "Background Color"
+		page STRING "Background"
+		gaffer.layout.index INT 2
+		
+	[attr shadow_color]
+		label STRING "Shadow Color"
+		page STRING "Shadows"
+		gaffer.layout.index INT 3			
+	[attr shadow_opacity]
+		label STRING "Shadow Opacity"
+		page STRING "Shadows"
+		gaffer.layout.index INT 4		
+	[attr backlighting]
+		label STRING "Backlighting"
+		page STRING "Shadows"
+		gaffer.layout.index INT 5		
+	[attr alpha_mask]
+		label STRING "Alpha Mask"
+		page STRING "Shadows"			
+		gaffer.layout.index INT 6
+		
+	[attr diffuse_color]
+		label STRING "Color"
+		page STRING "Diffuse"
+		gaffer.layout.index INT 7		
+	[attr diffuse_intensity]
+		label STRING "Intensity"
+		page STRING "Diffuse"
+		gaffer.layout.index INT 8		
+	[attr diffuse_use_background]
+		label STRING "Use Background"
+		page STRING "Diffuse"
+		gaffer.layout.index INT 9		
+	[attr indirect_diffuse_enable]
+		label STRING "Indirect Diffuse"	
+		page STRING "Diffuse"		
+		gaffer.layout.index INT 10
+		
+	[attr indirect_specular_enable]
+		label STRING "Indirect specular"
+		page STRING "Specular"	
+		gaffer.layout.index INT 11		
+	[attr specular_color]
+		label STRING "Color"
+		page STRING "Specular"
+		gaffer.layout.index INT 12		
+	[attr specular_intensity]
+		label STRING "Intensity"
+		page STRING "Specular"
+		gaffer.layout.index INT 13		
+	[attr specular_roughness]
+		label STRING "Roughness"
+		page STRING "Specular"
+		gaffer.layout.index INT 14		
+	[attr specular_IOR]
+		label STRING "IOR"	
+		page STRING "Specular"
+		gaffer.layout.index INT 15		
+
+	[attr aov_group]
+		page STRING "Lights"	
+		gaffer.layout.index INT 16
+		
+	[attr aov_shadow]
+		label STRING "Shadow"
+		page STRING "AOVs"
+		gaffer.layout.index INT 17		
+	[attr aov_shadow_diff]
+		label STRING "Shadow Diff"
+		page STRING "AOVs"
+		gaffer.layout.index INT 18		
+	[attr aov_shadow_mask]
+		label STRING "Shadow Mask"	
+		page STRING "AOVs"	
+		gaffer.layout.index INT 19
+			
+#-------------------------------------------------------------------
+[node shuffle]
+
+	gaffer.nodeMenu.category STRING "utility/shader"
+
+#-------------------------------------------------------------------
+[node sign]
+
+	primaryInput STRING "input"
+	gaffer.nodeMenu.category STRING "Maths"
+
+#-------------------------------------------------------------------
+[node skin]
+
+	# DEPRECATED
+	gaffer.nodeMenu.category STRING ""
+
+#-------------------------------------------------------------------
+[node sky]
+
+	# DEPRECATED
+	gaffer.nodeMenu.category STRING ""
+
+#-------------------------------------------------------------------
+[node space_transform]
+
+	gaffer.nodeMenu.category STRING "utility/shader"
+
+#-------------------------------------------------------------------
+[node sqrt]
+
+	primaryInput STRING "input"
+	gaffer.nodeMenu.category STRING "Maths"
+
+#-------------------------------------------------------------------
+[node standard]
+
+	# DEPRECATED
+	gaffer.nodeMenu.category STRING ""
+
+#-------------------------------------------------------------------
+[node standard_surface]
+	gaffer.nodeMenu.category STRING "Surface"
+	gaffer.graphEditorLayout.defaultVisibility BOOL false
+
+	gaffer.layout.section.Base.collapsed BOOL false
+	
+	[attr base]
+		gaffer.graphEditorLayout.visible BOOL true
+		page STRING "Base"
+	[attr base_color]
+		gaffer.graphEditorLayout.visible BOOL true
+		page STRING "Base"
+	[attr diffuse_roughness]
+		page STRING "Base"
+	[attr metalness]
+		gaffer.graphEditorLayout.visible BOOL true
+		page STRING "Base"
+
+	[attr specular]
+		gaffer.graphEditorLayout.visible BOOL true
+		page STRING "Specular"
+	[attr specular_color]
+		gaffer.graphEditorLayout.visible BOOL true
+		page STRING "Specular"
+	[attr specular_roughness]
+		gaffer.graphEditorLayout.visible BOOL true
+		page STRING "Specular"
+	[attr specular_IOR]
+		page STRING "Specular"
+	[attr specular_anisotropy]
+		page STRING "Specular"
+	[attr specular_rotation]
+		page STRING "Specular"
+
+	[attr transmission]
+		page STRING "Transmission"
+	[attr transmission_color]
+		page STRING "Transmission"
+	[attr transmission_depth]
+		page STRING "Transmission"
+	[attr transmission_scatter]
+		page STRING "Transmission"
+	[attr transmission_scatter_anisotropy]
+		page STRING "Transmission"
+	[attr transmission_dispersion]
+		page STRING "Transmission"
+	[attr transmission_extra_roughness]
+		page STRING "Transmission"
+	[attr transmit_aovs]
+		page STRING "Transmission"
+	[attr dielectric_priority]
+		page STRING "Transmission"
+
+	[attr subsurface]
+		page STRING "Subsurface"
+	[attr subsurface_color]
+		gaffer.graphEditorLayout.visible BOOL true
+		page STRING "Subsurface"
+	[attr subsurface_radius]
+		page STRING "Subsurface"
+	[attr subsurface_scale]
+		page STRING "Subsurface"
+	[attr subsurface_type]
+		page STRING "Subsurface"
+	[attr subsurface_anisotropy]
+		page STRING "Subsurface"
+
+	[attr coat]
+		page STRING "Coat"
+	[attr coat_color]
+		page STRING "Coat"
+	[attr coat_roughness]
+		page STRING "Coat"
+	[attr coat_IOR]
+		page STRING "Coat"
+	[attr coat_normal]
+		gaffer.graphEditorLayout.visible BOOL true
+		page STRING "Coat"
+	[attr coat_affect_color]
+		page STRING "Coat"
+	[attr coat_affect_roughness]
+		page STRING "Coat"
+	[attr coat_anisotropy]
+		page STRING "Coat"
+	[attr coat_rotation]
+		page STRING "Coat"
+
+	[attr sheen]
+		page STRING "Sheen"
+	[attr sheen_color]
+		page STRING "Sheen"
+	[attr sheen_roughness]
+		page STRING "Sheen"
+
+	[attr emission]
+		page STRING "Emission"
+	[attr emission_color]
+		page STRING "Emission"
+
+	[attr thin_film_thickness]
+		page STRING "Thin Film"
+	[attr thin_film_IOR]
+		page STRING "Thin Film"
+
+	[attr thin_walled]
+		page STRING "Geometry"
+	[attr opacity]
+		page STRING "Geometry"
+	[attr normal]
+		gaffer.graphEditorLayout.visible BOOL true
+		page STRING "Geometry"
+	[attr tangent]
+		gaffer.graphEditorLayout.visible BOOL true
+		page STRING "Geometry"
+
+	[attr caustics]
+		page STRING "Advanced"
+	[attr internal_reflections]
+		page STRING "Advanced"
+	[attr exit_to_background]
+		page STRING "Advanced"
+	[attr indirect_diffuse]
+		page STRING "Advanced"
+	[attr indirect_specular]
+		page STRING "Advanced"
+
+	[attr aov_id1]
+		page STRING "AOV"
+	[attr aov_id2]
+		page STRING "AOV"
+	[attr aov_id3]
+		page STRING "AOV"
+	[attr aov_id4]
+		page STRING "AOV"
+	[attr aov_id5]
+		page STRING "AOV"
+	[attr aov_id6]
+		page STRING "AOV"
+	[attr aov_id7]
+		page STRING "AOV"
+	[attr aov_id8]
+		page STRING "AOV"
+	[attr id1]
+		page STRING "AOV"
+	[attr id2]
+		page STRING "AOV"
+	[attr id3]
+		page STRING "AOV"
+	[attr id4]
+		page STRING "AOV"
+	[attr id5]
+		page STRING "AOV"
+	[attr id6]
+		page STRING "AOV"
+	[attr id7]
+		page STRING "AOV"
+	[attr id8]
+		page STRING "AOV"
+
+#-------------------------------------------------------------------
+[node standard_hair]
+
+	gaffer.nodeMenu.category STRING "Surface"
+	gaffer.graphEditorLayout.defaultVisibility BOOL false
+	gaffer.layout.section.Color.collapsed BOOL false
+
+	[attr base]
+		gaffer.graphEditorLayout.visible BOOL true
+		page STRING "Color"
+	[attr base_color]
+		gaffer.graphEditorLayout.visible BOOL true
+		page STRING "Color"
+	[attr melanin]
+		page STRING "Color"
+	[attr melanin_redness]
+		page STRING "Color"
+	[attr melanin_randomize]
+		page STRING "Color"
+
+	[attr roughness]
+		gaffer.graphEditorLayout.visible BOOL true
+		page STRING "Specular"
+	[attr ior]
+		page STRING "Specular"
+	[attr shift]
+		page STRING "Specular"
+	[attr roughness_azimuthal]
+		page STRING "Specular"
+	[attr roughness_anisotropic]
+		page STRING "Specular"
+
+	[attr specular_tint]
+		page STRING "Tint"
+	[attr specular2_tint]
+		page STRING "Tint"
+	[attr transmission_tint]
+		page STRING "Tint"
+
+	[attr diffuse]
+		page STRING "Diffuse"
+	[attr diffuse_color]
+		page STRING "Diffuse"
+
+	[attr emission]
+		page STRING "Emission"
+	[attr emission_color]
+		page STRING "Emission"
+
+	[attr opacity]
+		page STRING "Advanced"
+	[attr indirect_diffuse]
+		page STRING "Advanced"
+	[attr indirect_specular]
+		page STRING "Advanced"
+	[attr extra_depth]
+		page STRING "Advanced"
+	[attr extra_samples]
+		page STRING "Advanced"
+
+	[attr aov_id1]
+		page STRING "AOV"
+	[attr aov_id2]
+		page STRING "AOV"
+	[attr aov_id3]
+		page STRING "AOV"
+	[attr aov_id4]
+		page STRING "AOV"
+	[attr aov_id5]
+		page STRING "AOV"
+	[attr aov_id6]
+		page STRING "AOV"
+	[attr aov_id7]
+		page STRING "AOV"
+	[attr aov_id8]
+		page STRING "AOV"
+	[attr id1]
+		page STRING "AOV"
+	[attr id2]
+		page STRING "AOV"
+	[attr id3]
+		page STRING "AOV"
+	[attr id4]
+		page STRING "AOV"
+	[attr id5]
+		page STRING "AOV"
+	[attr id6]
+		page STRING "AOV"
+	[attr id7]
+		page STRING "AOV"
+	[attr id8]
+		page STRING "AOV"
+#-------------------------------------------------------------------
+[node standard_volume]
+
+	gaffer.nodeMenu.category STRING "Volume"
+	gaffer.graphEditorLayout.defaultVisibility BOOL false
+
+	[attr density]
+		gaffer.graphEditorLayout.visible BOOL true
+		page STRING "Density"
+	[attr density_channel]
+		page STRING "Density"
+
+	[attr scatter]
+		gaffer.graphEditorLayout.visible BOOL true
+		page STRING "Scatter"
+	[attr scatter_color]
+		gaffer.graphEditorLayout.visible BOOL true
+		page STRING "Scatter"
+	[attr scatter_color_channel]
+		page STRING "Scatter"
+	[attr scatter_anisotropy]
+		page STRING "Scatter"
+
+	[attr transparent]
+		page STRING "Transparent"
+	[attr transparent_channel]
+		page STRING "Transparent"
+	[attr transparent_depth]
+		page STRING "Transparent"
+
+	[attr emission_mode]
+		page STRING "Emission"
+	[attr emission]
+		gaffer.graphEditorLayout.visible BOOL true
+		page STRING "Emission"
+	[attr emission_color]
+		gaffer.graphEditorLayout.visible BOOL true
+		page STRING "Emission"
+	[attr emission_channel]
+		page STRING "Emission"
+	[attr temperature]
+		gaffer.graphEditorLayout.visible BOOL true
+		page STRING "Emission"
+	[attr temperature_channel]
+		page STRING "Emission"
+	[attr blackbody_kelvin]
+		page STRING "Emission"
+	[attr blackbody_intensity]
+		page STRING "Emission"
+
+	[attr displacement]
+		gaffer.graphEditorLayout.visible BOOL true
+		page STRING "Sampling"
+	[attr interpolation]
+		page STRING "Sampling"
+
+#-------------------------------------------------------------------
+[node state_float]
+
+	gaffer.nodeMenu.category STRING "utility/shader"
+
+#-------------------------------------------------------------------
+[node state_int]
+
+	gaffer.nodeMenu.category STRING "utility/shader"
+
+#-------------------------------------------------------------------
+[node state_vector]
+
+	gaffer.nodeMenu.category STRING "utility/shader"
+
+#-------------------------------------------------------------------
+[node subtract]
+
+	gaffer.nodeMenu.category STRING "Maths"
+
+#-------------------------------------------------------------------
+[node switch_rgba]
+
+	primaryInput STRING "input0"
+	gaffer.nodeMenu.category STRING "Utility/conversion"
+
+#-------------------------------------------------------------------
+[node switch_shader]
+
+	primaryInput STRING "input0"
+	gaffer.nodeMenu.category STRING "Surface"
+
+#-------------------------------------------------------------------
+[node toon]
+
+	gaffer.nodeMenu.category STRING "Surface"
+	gaffer.graphEditorLayout.defaultVisibility BOOL false
+
+		[attr enable]
+			page STRING "Edge"
+		[attr edge_color]
+			gaffer.graphEditorLayout.visible BOOL true
+			page STRING "Edge"
+		[attr edge_tonemap]
+			gaffer.graphEditorLayout.visible BOOL true
+			page STRING "Edge"
+		[attr edge_opacity]
+			page STRING "Edge"
+		[attr edge_width_scale]
+			page STRING "Edge"
+
+		[attr id_difference]
+			page STRING "Edge.Edge Detection"
+		[attr user_id]
+			page STRING "Edge.Edge Detection"
+		[attr shader_difference]
+			page STRING "Edge.Edge Detection"
+		[attr mask_color]
+			gaffer.graphEditorLayout.visible BOOL true
+			page STRING "Edge.Edge Detection"
+		[attr uv_threshold]
+			page STRING "Edge.Edge Detection"
+		[attr angle_threshold]
+			page STRING "Edge.Edge Detection"
+		[attr normal_type]
+			page STRING "Edge.Edge Detection"
+
+		[attr priority]
+			page STRING "Edge.Advanced Edge Control"
+		[attr ignore_throughput]
+			page STRING "Edge.Advanced Edge Control"
+
+		[attr enable_silhouette]
+			page STRING "Silhouette"
+			desc STRING "Requires \"contour_filter\" on all Outputs"
+		[attr silhouette_color]
+			gaffer.graphEditorLayout.visible BOOL true
+			page STRING "Silhouette"
+		[attr silhouette_tonemap]
+			gaffer.graphEditorLayout.visible BOOL true
+			page STRING "Silhouette"
+		[attr silhouette_opacity]
+			page STRING "Silhouette"
+		[attr silhouette_width_scale]
+			page STRING "Silhouette"
+
+		[attr base]
+			gaffer.graphEditorLayout.visible BOOL true
+			page STRING "Base"
+		[attr base_color]
+			gaffer.graphEditorLayout.visible BOOL true
+			page STRING "Base"
+		[attr base_tonemap]
+			gaffer.graphEditorLayout.visible BOOL true
+			page STRING "Base"
+
+		[attr specular]
+			page STRING "Specular"
+		[attr specular_color]
+			page STRING "Specular"
+		[attr specular_roughness]
+			page STRING "Specular"
+		[attr specular_anisotropy]
+			page STRING "Specular"
+		[attr specular_rotation]
+			page STRING "Specular"
+		[attr specular_tonemap]
+			page STRING "Specular"
+
+		[attr lights]
+			page STRING "Stylized Highlight"
+		[attr highlight_color]
+			page STRING "Stylized Highlight"
+		[attr highlight_size]
+			page STRING "Stylized Highlight"
+
+		[attr rim_light]
+			page STRING "Rim Lighting"
+		[attr rim_light_color]
+			page STRING "Rim Lighting"
+		[attr rim_light_tint]
+			page STRING "Rim Lighting"
+		[attr rim_light_width]
+			page STRING "Rim Lighting"
+
+		[attr transmission]
+			page STRING "Transmission"
+		[attr transmission_color]
+			page STRING "Transmission"
+		[attr transmission_roughness]
+			page STRING "Transmission"
+		[attr transmission_anisotropy]
+			page STRING "Transmission"
+		[attr transmission_rotation]
+			page STRING "Transmission"
+
+		[attr sheen]
+			page STRING "Sheen"
+		[attr sheen_color]
+			page STRING "Sheen"
+		[attr sheen_roughness]
+			page STRING "Sheen"
+
+		[attr emission]
+			gaffer.graphEditorLayout.visible BOOL true
+			page STRING "Emission"
+		[attr emission_color]
+			gaffer.graphEditorLayout.visible BOOL true
+			page STRING "Emission"
+
+		[attr normal]
+			page STRING "Geometry"
+		[attr tangent]
+			page STRING "Geometry"
+		[attr bump_mode]
+			page STRING "Geometry"
+
+		[attr aov_highlight]
+			page STRING "AOV"
+		[attr aov_rim_light]
+			page STRING "AOV"
+		[attr aov_prefix]
+			page STRING "AOV"
+
+		[attr IOR]
+			page STRING "Advanced"
+		[attr indirect_diffuse]
+			page STRING "Advanced"
+		[attr indirect_specular]
+			page STRING "Advanced"
+		[attr energy_conserving]
+			page STRING "Advanced"
+
+#-------------------------------------------------------------------
+[node thin_film]
+
+	# DEPRECATED
+	gaffer.nodeMenu.category STRING ""
+
+#-------------------------------------------------------------------
+[node trace_set]
+
+	primaryInput STRING "passthrough"
+	gaffer.nodeMenu.category STRING "utility/shader"
+
+#-------------------------------------------------------------------
+[node trigo]
+
+	primaryInput STRING "input"
+	gaffer.nodeMenu.category STRING "Maths"
+
+#-------------------------------------------------------------------
+[node triplanar]
+	gaffer.nodeMenu.category STRING "Texture"
+
+	[attr input]
+		label STRING "Input"
+		gaffer.layout.index INT 0		
+	[attr coord_space]
+		label STRING "Coord Space"	
+		gaffer.layout.index INT 1
+	[attr pref_name]
+		label STRING "Pref Name"
+		gaffer.layout.index INT 2		
+	[attr blend]
+		label STRING "Blend"
+		gaffer.layout.index INT 3		
+	[attr scale]
+		label STRING "Scale"
+		gaffer.layout.index INT 4
+		page STRING "Transform"		
+	[attr rotate]
+		label STRING "Rotate"
+		gaffer.layout.index INT 5
+		page STRING "Transform"			
+	[attr offset]
+		label STRING "Offset"		
+		gaffer.layout.index INT 6
+		page STRING "Transform"			
+	[attr cell]
+		label STRING "Enable Cell"	
+		gaffer.layout.index INT 7
+		page STRING "Cell"			
+	[attr cell_rotate]
+		label STRING "Rotate"
+		gaffer.layout.index INT 8
+		page STRING "Cell"		
+	[attr cell_blend]
+		label STRING "Blend"	
+		gaffer.layout.index INT 9
+		page STRING "Cell"
+
+#-------------------------------------------------------------------
+[node two_sided]
+
+	gaffer.nodeMenu.category STRING "Surface"
+
+#-------------------------------------------------------------------
+[node user_data_float]
+
+	gaffer.nodeMenu.category STRING "utility/user data"
+
+#-------------------------------------------------------------------
+[node user_data_int]
+
+	gaffer.nodeMenu.category STRING "utility/user data"
+
+#-------------------------------------------------------------------
+[node user_data_rgb]
+
+	gaffer.nodeMenu.category STRING "utility/user data"
+
+#-------------------------------------------------------------------
+[node user_data_rgba]
+
+	gaffer.nodeMenu.category STRING "utility/user data"
+
+#-------------------------------------------------------------------
+[node user_data_string]
+
+	gaffer.nodeMenu.category STRING "utility/user data"
+
+#-------------------------------------------------------------------
+[node utility]
+
+	gaffer.nodeMenu.category STRING "Surface"
+
+#-------------------------------------------------------------------
+[node uv_projection]
+
+	gaffer.nodeMenu.category STRING "utility/shader"
+
+#-------------------------------------------------------------------
+[node uv_transform]
+
+	gaffer.nodeMenu.category STRING "utility/shader"
+
+#-------------------------------------------------------------------
+[node vector_map]
+
+	gaffer.nodeMenu.category STRING "utility/shader"
+
+#-------------------------------------------------------------------
+[node vector_to_rgb]
+
+	gaffer.nodeMenu.category STRING "Utility/conversion"
+
+#-------------------------------------------------------------------
+[node volume_collector]
+
+	#DEPRECATED
+	gaffer.nodeMenu.category STRING ""
+
+#-------------------------------------------------------------------
+[node volume_sample_float]
+
+	gaffer.nodeMenu.category STRING "Utility"
+
+#-------------------------------------------------------------------
+[node volume_sample_rgb]
+
+	gaffer.nodeMenu.category STRING "Utility"
+
+#-------------------------------------------------------------------
+[node wireframe]
+
+	gaffer.nodeMenu.category STRING "Surface"
+
+
+# Standard Arnold Colour Managers
+##########################################################################
+
+[node color_manager_ocio]
+
+	[attr config]
+		widget STRING "filename"
+
+	[attr linear_chromaticities]
+		# Disable because we don't support array plugs yet
+		gaffer.plugType STRING ""
+
+#-------------------------------------------------------------
+[node visible_light]
+	#DEPRECATED
+	gaffer.nodeMenu.category STRING ""	
+#-------------------------------------------------------------------	
+[node maya_layered_shader]	
+	#DEPRECATED
+	gaffer.nodeMenu.category STRING ""
+#-------------------------------------------------------------------
+[node c4d_texture_tag_rgba]
+	#DEPRECATED
+	gaffer.nodeMenu.category STRING ""
+#-------------------------------------------------------------------
+[node c4d_texture_tag]
+	#DEPRECATED
+	gaffer.nodeMenu.category STRING ""	
+#-------------------------------------------------------------------	
+[node query_shape]
+	#DEPRECATED
+	gaffer.nodeMenu.category STRING ""	
+#-------------------------------------------------------------------	
